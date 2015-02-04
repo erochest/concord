@@ -6,7 +6,7 @@ FLAGS=--enable-tests
 
 all: init test docs package
 
-init:
+init: stackage
 	${CABAL} sandbox init
 	make deps
 
@@ -45,6 +45,7 @@ clean:
 	${CABAL} clean
 
 distclean: clean
+	-rm cabal.config
 	${CABAL} sandbox delete
 
 configure: clean
@@ -61,4 +62,8 @@ restart: distclean init build
 
 rebuild: clean configure build
 
-.PHONY: all init test run clean distclean configure deps build rebuild hlint
+stackage:
+	curl 'http://www.stackage.org/snapshot/nightly-'`date "+%Y-%m-%d"`'/cabal.config?download=true' > cabal.config
+	cabal update
+
+.PHONY: all init test run clean distclean configure deps build rebuild hlint stackage
