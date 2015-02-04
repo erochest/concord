@@ -4,13 +4,13 @@
 name:                concord
 version:             0.1.0.0
 synopsis:            Generate concordances.
--- description:         
+description:         Walks a directory tree and generates a concordance.
 license:             Apache-2.0
 license-file:        LICENSE
 author:              Eric Rochester
 maintainer:          erochest@virginia.edu
 -- copyright:           
--- category:            
+category:            Text
 build-type:          Simple
 -- extra-source-files:  
 cabal-version:       >=1.10
@@ -20,16 +20,25 @@ library
   -- other-modules:       
   -- other-extensions:    
   build-depends:       base >=4.7 && <4.8
+                     , conduit
+                     , conduit-combinators
+                     , lens
+                     , text
   -- hs-source-dirs:      
   default-language:    Haskell2010
+
+
 executable concord
   main-is:             Main.hs
-  -- other-modules:       
-  -- other-extensions:    
+  other-modules:       Opts
+                     , Types
+  other-extensions:    NoImplicitPrelude
   build-depends:       base >=4.7 && <4.8
                      , concord
-                     , text
+                     , classy-prelude
+                     , lens
                      , optparse-applicative
+                     , text
   -- hs-source-dirs:      .
   default-language:    Haskell2010
 
@@ -52,3 +61,4 @@ test-suite concord-specs
 source-repository this
   type:                git
   location:            git://github.com/erochest/concord.git
+  tag:                 master

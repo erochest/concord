@@ -1,8 +1,15 @@
+{-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 
 module Main where
 
 
+import           ClassyPrelude
+
+import           Opts
+import           Types
+
+
 main :: IO ()
-main = undefined
+main = print =<< execParser opts
