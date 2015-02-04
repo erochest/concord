@@ -32,6 +32,7 @@ executable concord
   main-is:             Main.hs
   other-modules:       Opts
                      , Types
+                     , Paths_concord
   other-extensions:    NoImplicitPrelude
   build-depends:       base >=4.7 && <4.8
                      , concord

@@ -1,5 +1,6 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TemplateHaskell   #-}
 
 
 module Types
@@ -7,8 +8,14 @@ module Types
     ) where
 
 
+import           Control.Lens
+
 import           ClassyPrelude
 
 
-data ConcordOpts = CO
-                 deriving (Show)
+data ConcordOpts
+        = CO
+        { _optsInput  :: !FilePath
+        , _optsOutput :: !(Maybe FilePath)
+        } deriving (Show)
+makeLenses ''ConcordOpts
