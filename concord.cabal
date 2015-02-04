@@ -16,7 +16,12 @@ build-type:          Simple
 cabal-version:       >=1.10
 
 library
-  -- exposed-modules:     
+  exposed-modules:     
+                     -- TODO: Concord.IO
+                     -- TODO: , Concord.Indexing
+                     -- TODO: , Concord.Output
+                     -- TODO: , Concord.Persistence
+                     -- TODO: , Concord.Tokenizing
   -- other-modules:       
   -- other-extensions:    
   build-depends:       base >=4.7 && <4.8
