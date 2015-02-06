@@ -27,6 +27,7 @@ library
   build-depends:       base >=4.7 && <4.8
                      , conduit
                      , conduit-combinators
+                     , conduit-extra
                      , system-filepath
                      , lens
                      , text
