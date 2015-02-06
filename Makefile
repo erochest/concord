@@ -17,7 +17,7 @@ specs: build
 	./dist/build/concord-specs/concord-specs
 
 run:
-	${CABAL} run
+	${CABAL} run -- --input data --output concord.output
 
 
 # docs:

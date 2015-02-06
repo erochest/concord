@@ -43,9 +43,13 @@ executable concord
   other-extensions:    NoImplicitPrelude
   build-depends:       base >=4.7 && <4.8
                      , concord
+                     , conduit-combinators
+                     , conduit
                      , classy-prelude
                      , lens
                      , optparse-applicative
+                     , system-filepath
+                     , system-fileio
                      , text
   -- hs-source-dirs:      .
   default-language:    Haskell2010
