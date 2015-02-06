@@ -24,7 +24,7 @@ import           Concord.Types
 walkCorpus :: MonadResource m => FilePath -> Producer m FilePath
 walkCorpus = sourceDirectoryDeep True
 
-toLines :: MonadResource m => Conduit FilePath m (Located T.Text)
+toLines :: MonadResource m => Conduit FilePath m (Located LineLoc T.Text)
 toLines = do
     fp' <- await
     case fp' of
@@ -32,7 +32,7 @@ toLines = do
         Nothing -> return ()
 
 locateLines :: MonadResource m
-            => FilePath -> ConduitM T.Text (Located T.Text) m ()
+            => FilePath -> ConduitM T.Text (Located LineLoc T.Text) m ()
 locateLines fp = go 1
     where
         go n =   await

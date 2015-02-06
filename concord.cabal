@@ -20,11 +20,12 @@ library
                      -- TODO: , Concord.Indexing
                      -- TODO: , Concord.Output
                      -- TODO: , Concord.Persistence
-                     -- TODO: , Concord.Tokenizing
+                     , Concord.Tokenizing
                      , Concord.Types
   -- other-modules:       
   -- other-extensions:    
   build-depends:       base >=4.7 && <4.8
+                     , attoparsec
                      , conduit
                      , conduit-combinators
                      , conduit-extra
