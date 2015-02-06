@@ -28,15 +28,17 @@ toLines :: MonadResource m => Conduit FilePath m (Located T.Text)
 toLines = do
     fp' <- await
     case fp' of
-        Just fp -> sourceFile fp =$= CT.lines =$= nLines 0 fp
+        Just fp -> sourceFile fp =$= CT.lines =$= locateLines fp
         Nothing -> return ()
 
-nLines :: MonadResource m
-       => Int -> FilePath -> ConduitM T.Text (Located T.Text) m ()
-nLines n fp =   await
-            >>= maybe (return ())
-                      ( (>> nLines (n + 1) fp)
-                      . yield
-                      . Located fp (Line n))
+locateLines :: MonadResource m
+            => FilePath -> ConduitM T.Text (Located T.Text) m ()
+locateLines fp = go 1
+    where
+        go n =   await
+             >>= maybe (return ())
+                       ( (>> go (n + 1))
+                       . yield
+                       . Located fp (Line n))
 
 -- toCorpusLines :: MonadResource m => Conduit (Located T.Text) m (Located
