@@ -6,7 +6,7 @@ FLAGS=--enable-tests
 
 all: init test docs package
 
-init: stackage
+init:
 	${CABAL} sandbox init
 	make deps
 

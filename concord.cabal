@@ -24,7 +24,7 @@ library
                      , Concord.Types
   -- other-modules:       
   -- other-extensions:    
-  build-depends:       base >=4.7 && <4.8
+  build-depends:       base >=4.7 && <5
                      , attoparsec
                      , conduit
                      , conduit-combinators
@@ -42,11 +42,11 @@ executable concord
                      , Types
                      , Paths_concord
   other-extensions:    NoImplicitPrelude
-  build-depends:       base >=4.7 && <4.8
+  build-depends:       base >=4.7 && <5
                      , concord
                      , conduit-combinators
                      , conduit
-                     , classy-prelude
+                     , classy-prelude >0.11
                      , lens
                      , optparse-applicative
                      , system-filepath
@@ -61,7 +61,7 @@ test-suite concord-specs
   ghc-options:         -threaded -rtsopts
   hs-source-dirs:      specs
   main-is:             Specs.hs
-  build-depends:         base       == 4.7.*
+  build-depends:         base
                        , QuickCheck
                        , smallcheck
                        , hspec
